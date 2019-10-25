@@ -1,0 +1,12 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.inicio{
+    background-image: url(../../fondo-registro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
