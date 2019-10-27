@@ -1,0 +1,35 @@
+.conteiner-form{
+ width: 30%;
+ height: 70vh;
+ padding-left: 15%;
+ padding-top: 3rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ 
+}
+.conteiner-form form{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.conteiner-form form input {
+  margin-top:1rem;
+  font-size: 16px;
+}
+input[type="button"]{
+    background:#1E8DF4;
+    color: white;
+    
+}
+p{
+    padding-left: 6.5rem;
+    padding-top: 1.5rem;
+}
+.register{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    
+}

@@ -3,8 +3,8 @@
     margin: 0%;
 }
 
-.inicio{
-    background-image: url(../../fondo-registro.jpg);
+.login{
+    background-image: url(../../img/fondo-registro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
