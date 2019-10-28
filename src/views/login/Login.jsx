@@ -6,74 +6,60 @@ import { firebaseApp } from '../../firebase/firebase';
 import Input from '../../components/generales/inputs/Inputs'
 import TextErrors from '../../components/generales/errors/Errors'
 import Logo from '../../components/generales/logo/logo'
+import Modal from 'react-responsive-modal';
 import 'firebase/auth';
 import './Login.css';
 
+const styles = {
+    fontFamily: "sans-serif",
+    textAlign: "center",
+    background: "green",
+};
 
 
 class Login extends Component {
-    constructor() {
-        super();
-        this.state = { email: "", password: "" };
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    }
+    state = {
+        open: false,
+    };
 
-    handleEmailChange(e) {
-        const { value } = e.target;
-        this.setState({ email: value });
-    }
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
 
-    handlePasswordChange(e) {
-        const { value } = e.target;
-        this.setState({ password: value });
-    }
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
 
     render() {
-        const {
-            user,
-            signInWithEmailAndPassword,
-            error
-        } = this.props;
-
-        const { email, password } = this.state;
+        const { open } = this.state;
         return (
-            <Fragment>
-                <main className="login">
+            <div className="login" >
+                <div className="conteiner-form">
+                    <form>
+                        <Logo />
+                        <Input type="text" placeholder="Ingresa tu correo" />
+                        <Input type="text" placeholder="Contraseña" />
+                        <Input type="button" value="Iniciar Sesión" />
 
-                    <div className="contenedor">
 
-                        <div className="user-inputs">
-                            <Logo />
-                            <Input type="email" onChange={this.handleEmailChange} />
-                            <Input type="password" onChange={this.handlePasswordChange} />
-                            {
-                                user
-                                    ? <Redirect to="/Home" />
-                                    :
-                                    <Input type="button" value="INICIAR SESIÓN" onClick={(e) => {
-                                        signInWithEmailAndPassword(email, password)
-                                    }} />
+                    </form>
+                    <div className="conteiner-button">
+                        <button onClick={this.onOpenModal} className="button-modal">Regístrate</button>
+                        <Modal style={styles} open={open} onClose={this.onCloseModal} >
+                            <h2>simple</h2>
 
-                            }
-                            {error ? <TextErrors textColor="red" text={error} /> : ''}
-                            {/* <Link to="/registro">
-                            </Link> */}
-                        </div>
+                        </Modal>
 
                     </div>
-                </main>
-            </Fragment>
-        )
+                    <p>O inicia con</p>
+                </div>
+
+
+            </div>
+
+
+        );
     }
 }
-const firebaseAppAuth = firebaseApp.auth();
-const providers = {
-    googleProvider: new firebase.auth.GoogleAuthProvider(),
-}
 
-export default withFirebaseAuth({
-    providers,
-    firebaseAppAuth,
-})(Login);
-
+export default Login;
