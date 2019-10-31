@@ -1,86 +1,86 @@
 import React, { Component, Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
 import { firebaseApp } from '../../firebase/firebase';
 import Input from '../../components/generales/inputs/Inputs'
 import TextErrors from '../../components/generales/errors/Errors'
 import Logo from '../../components/generales/logo/logo'
-import Modal from 'react-responsive-modal';
-import facebook from '../../img/facebook.png';
-import gmail from '../../img/gmail.png';
+// import facebook from '../../img/facebook.png';
+import Register from '../register/Register'
+// import gmail from '../../img/gmail.png';
 import 'firebase/auth';
 import './Login.css';
 
-const styles = {
-    fontFamily: "sans-serif",
-    textAlign: "center",
-    background: "rgba(216, 183, 183, 0.938)",
-    display: "flex",
-    flexDirection: "column",
-    height: "70vh",
-
-    padding: "1rem",
-    justifyContent: "space-evenly"
-};
 
 
 class Login extends Component {
-    state = {
-        open: false,
-    };
-
-    onOpenModal = () => {
-        this.setState({ open: true });
-    };
-
-    onCloseModal = () => {
-        this.setState({ open: false });
-    };
-
+    // estados y funciones
+    constructor() {
+        super();
+        this.state = { email: "", password: "" }
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    }
+    handleEmailChange(e) {
+        const { value } = e.target;
+        this.setState({ email: value })
+    }
+    handlePasswordChange(e) {
+        const { value } = e.target;
+        this.setState({ password: value });
+    }
     render() {
-        const { open } = this.state;
+        const {
+            user,
+            signInWithEmailAndPassword,
+            error
+        } = this.props;
+        const { email, password } = this.state;
         return (
-            <div className="login" >
-                <div className="conteiner-form">
-                    <form>
+            <Fragment>
+                <main className="login" >
+                    <div className="conteiner-form">
                         <Logo />
-                        <Input type="text" placeholder="Ingresa tu correo" />
-                        <Input type="text" placeholder="Contraseña" />
-                        <Input type="button" value="Iniciar Sesión" />
+                        <div className="user-inputs">
+                            <Input value={email} onChange={this.handleEmailChange} type="email" placeholder="Correo electrónico" />
+                            <Input value={password} onChange={this.handlePasswordChange} type="password" placeholder="Contraseña" />
+                            {
+                                user
+                                    ? <Redirect to="/Home/" />
+                                    :
+                                    <button onClick={(e) => {
+                                        signInWithEmailAndPassword(email, password)
+                                    }}> iniciar </button>
 
 
-                    </form>
-                    <div className="conteiner-button">
-                        <button onClick={this.onOpenModal} className="button-modal">Regístrate</button>
-                        <Modal open={open} onClose={this.onCloseModal} center >
-                            <div style={styles}>
-                                <Input type="text" placeholder="Nombre" />
-                                <Input type="text" placeholder="Correo electrónico" />
-                                <Input type="text" placeholder="Contraseña" />
-                                <Input type="text" placeholder="Confirmar contraseña" />
-                                <Input type="button" value="Iniciar Sesión" />
-                                <p>Consulta <Link>Términos</Link> y <Link>Condiciones</Link></p>
+
+                            }
+                            {error ? <TextErrors textColor="red" text={error} /> : ''}
+                            <Register />
 
 
-                            </div>
-                        </Modal>
 
-                    </div>
-                    <p>O inicia con</p>
-                    <div className="logos">
-                        <img src={facebook} alt="facebook" className="social-logo" />
-                        <img src={gmail} alt="facebook" className="social-logo" />
+
+                            <p>O inicia con</p>
+
+
+                        </div>
                     </div>
 
-                </div>
+                </main>
 
-
-            </div>
-
-
-        );
+            </Fragment>
+        )
     }
 }
 
-export default Login;
+const firebaseAppAuth = firebaseApp.auth();
+const providers = {
+    googleProvider: new firebase.auth.GoogleAuthProvider(),
+}
+
+export default withFirebaseAuth({
+    providers,
+    firebaseAppAuth,
+})(Login);

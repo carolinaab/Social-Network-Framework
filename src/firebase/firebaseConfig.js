@@ -1,7 +1,7 @@
+
 import firebaseApp from 'firebase/app';
 import 'firebase/auth';
 const config = {
-    apiKey: "AIzaSyC7FSK03JcEV7HtO20cXB03ncK_afcfSc4",
     apiKey: "AIzaSyAK0qCeUP-wkzxRLnTL-y1U8L9eybG6Th4",
     authDomain: "fitclubframework.firebaseapp.com",
     databaseURL: "https://fitclubframework.firebaseio.com",
