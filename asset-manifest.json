@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/Social-Network-Framework/static/css/main.47cea12b.chunk.css",
-    "main.js": "/Social-Network-Framework/static/js/main.49b9d93f.chunk.js",
-    "main.js.map": "/Social-Network-Framework/static/js/main.49b9d93f.chunk.js.map",
+    "main.css": "/Social-Network-Framework/static/css/main.3ee04d95.chunk.css",
+    "main.js": "/Social-Network-Framework/static/js/main.75f9f36a.chunk.js",
+    "main.js.map": "/Social-Network-Framework/static/js/main.75f9f36a.chunk.js.map",
     "runtime-main.js": "/Social-Network-Framework/static/js/runtime-main.7ed85a3e.js",
     "runtime-main.js.map": "/Social-Network-Framework/static/js/runtime-main.7ed85a3e.js.map",
-    "static/js/2.07198443.chunk.js": "/Social-Network-Framework/static/js/2.07198443.chunk.js",
-    "static/js/2.07198443.chunk.js.map": "/Social-Network-Framework/static/js/2.07198443.chunk.js.map",
+    "static/js/2.50eb9969.chunk.js": "/Social-Network-Framework/static/js/2.50eb9969.chunk.js",
+    "static/js/2.50eb9969.chunk.js.map": "/Social-Network-Framework/static/js/2.50eb9969.chunk.js.map",
     "index.html": "/Social-Network-Framework/index.html",
-    "precache-manifest.cc1730462979df208007d2edb04386d9.js": "/Social-Network-Framework/precache-manifest.cc1730462979df208007d2edb04386d9.js",
+    "precache-manifest.e76203e4f573f1079208d7d3ccb0218f.js": "/Social-Network-Framework/precache-manifest.e76203e4f573f1079208d7d3ccb0218f.js",
     "service-worker.js": "/Social-Network-Framework/service-worker.js",
-    "static/css/main.47cea12b.chunk.css.map": "/Social-Network-Framework/static/css/main.47cea12b.chunk.css.map",
+    "static/css/main.3ee04d95.chunk.css.map": "/Social-Network-Framework/static/css/main.3ee04d95.chunk.css.map",
     "static/media/Login.css": "/Social-Network-Framework/static/media/fondo-registro.d5491690.jpg",
-    "static/media/gmail.png": "/Social-Network-Framework/static/media/gmail.5715f4c7.png"
+    "static/media/gmail.png": "/Social-Network-Framework/static/media/gmail.5715f4c7.png",
+    "static/media/plan-muro.jpg": "/Social-Network-Framework/static/media/plan-muro.b456a80d.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7ed85a3e.js",
-    "static/js/2.07198443.chunk.js",
-    "static/css/main.47cea12b.chunk.css",
-    "static/js/main.49b9d93f.chunk.js"
+    "static/js/2.50eb9969.chunk.js",
+    "static/css/main.3ee04d95.chunk.css",
+    "static/js/main.75f9f36a.chunk.js"
   ]
 }
