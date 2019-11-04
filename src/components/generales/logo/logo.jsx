@@ -5,10 +5,12 @@ import './logo.css'
 
 //Creating logo component
 class Logo extends Component {
+
     render() {
+        const { className } = this.props
         return (
             <div className="conteiner-img">
-                <img src={logo} alt="fitclub" className="img" />
+                <img src={logo} alt="fitclub" className={className} />
             </div>
         )
     }

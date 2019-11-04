@@ -1,0 +1,9 @@
+.logo-img{
+    width: 150px ;
+}
+.button-close{
+    background: transparent;
+    color: white;
+    border: none;
+    padding-top: .6rem;
+}

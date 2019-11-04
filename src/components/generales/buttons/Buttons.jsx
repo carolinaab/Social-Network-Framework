@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import './Buttons.css'
 
 
-class buttons extends Component {
+class Button extends Component {
     render() {
+        const { text, className, img, alt } = this.props;
         return (
             <div className="conteiner-button">
-                <input type="button" value={this.props.value} />
+                <button className={className}>{text}<img src={img} alt={alt} /></button>
             </div>
         );
     }
 }
 
 
-export default buttons;
+export default Button;

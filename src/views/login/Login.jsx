@@ -2,72 +2,84 @@ import React, { Component, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
-import { firebaseApp } from '../../firebase/firebase';
-import Input from '../../components/generales/inputs/Inputs'
-import TextErrors from '../../components/generales/errors/Errors'
-import Logo from '../../components/generales/logo/logo'
-// import facebook from '../../img/facebook.png';
-import Register from '../register/Register'
-// import gmail from '../../img/gmail.png';
 import 'firebase/auth';
+import { firebaseApp } from '../../firebase/index';
+import Logo from '../../components/generales/logo/logo';
+import Input from '../../components/generales/inputs/Inputs';
+import TextErrors from '../../components/textErrors/index';
+import Register from '../../components/specific/register/Register';
+import Button from '../../components/generales/buttons/Buttons'
+import google from '../../img/gmail.png'
+import facebook from '../../img/facebook.png'
 import './Login.css';
 
 
 
 class Login extends Component {
-    // estados y funciones
-    constructor() {
-        super();
-        this.state = { email: "", password: "" }
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        }
     }
-    handleEmailChange(e) {
-        const { value } = e.target;
-        this.setState({ email: value })
+
+    handleInputChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
-    handlePasswordChange(e) {
-        const { value } = e.target;
-        this.setState({ password: value });
-    }
+
     render() {
         const {
             user,
+            error,
             signInWithEmailAndPassword,
-            error
         } = this.props;
+
         const { email, password } = this.state;
         return (
             <Fragment>
-                <main className="login" >
-                    <div className="conteiner-form">
-                        <Logo />
-                        <div className="user-inputs">
-                            <Input value={email} onChange={this.handleEmailChange} type="email" placeholder="Correo electrónico" />
-                            <Input value={password} onChange={this.handlePasswordChange} type="password" placeholder="Contraseña" />
+                <main className='login' >
+                    <div className='container-form'>
+                        <Logo className="img-logo" />
+                        <div className='user-inputs'>
+                            <Input
+                                type='email'
+                                name='email'
+                                value={this.state.email}
+                                onChange={this.handleInputChange}
+                                placeholder='Correo electrónico'
+                                className='inputs' />
+                            <Input
+                                type='password'
+                                name='password'
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                placeholder='Contraseña'
+                                className='inputs' />
+
                             {
                                 user
-                                    ? <Redirect to="/Home/" />
+                                    ? <Redirect to='/Home/' />
                                     :
-                                    <button onClick={(e) => {
+                                    <button className='button' onClick={(e) => {
                                         signInWithEmailAndPassword(email, password)
-                                    }}> iniciar </button>
-
-
-
+                                    }}> Iniciar </button>
                             }
-                            {error ? <TextErrors textColor="red" text={error} /> : ''}
+
+                            {error ? <TextErrors textColor='red' text={error} /> : ''}
+
+
                             <Register />
-
-
-
-
                             <p>O inicia con</p>
-
-
+                        </div>
+                        <div className='social-logo'>
+                            <Button img={google} className='logos' />
+                            <Button img={facebook} className='logos' />
                         </div>
                     </div>
-
                 </main>
 
             </Fragment>
@@ -78,6 +90,7 @@ class Login extends Component {
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
     googleProvider: new firebase.auth.GoogleAuthProvider(),
+
 }
 
 export default withFirebaseAuth({

@@ -3,19 +3,21 @@ import './Inputs.css';
 
 class Inputs extends Component {
     render() {
-        const { id, type, name, autoComplete, className, value, onChange, placeholder, confirmPassword } = this.props;
+        const { id, type, name, autoComplete, className, value, onChange, placeholder } = this.props;
         return (
-            <input
-                id={id}
-                type={type}
-                name={name}
-                autoComplete={autoComplete}
-                className={className}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
+            <div className="container">
+                <input
+                    id={id}
+                    type={type}
+                    name={name}
+                    autoComplete={autoComplete}
+                    className={className}
+                    value={value}
+                    onChange={onChange}
+                    placeholder={placeholder}
 
-            />
+                />
+            </div>
         );
     }
 }
