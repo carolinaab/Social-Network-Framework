@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Img from '../../../../img/plan-muro.jpg'
+import Img from '../../../../img/plan-muro.jpg';
+import Post from '../../../post/create/Create';
+import Show from '../../../post/show/Show';
+
 import './Primary.css'
 
 
@@ -9,6 +12,15 @@ class Containers extends Component {
         return (
             <main className='container-main'>
                 <div className='container-post'>
+                    <div className='container-textarea'>
+                        <Post />
+                    </div>
+
+                    <div className='container-show'>
+                        <Show />
+                    </div>
+
+
 
                 </div>
                 <div className='container-img'>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
-import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
 import { firebaseApp } from '../../../firebase/index';
 import Input from '../../generales/inputs/Inputs';
@@ -26,6 +25,7 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: '',
             email: '',
             password: '',
             open: false,
@@ -39,17 +39,17 @@ class Register extends Component {
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-
+    handleOnSubmit = e => {
+        e.preventDefault();
+        const { email, password } = this.state;
+        firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     render() {
-        const {
-            user,
-            createUserWithEmailAndPassword,
-            error
-        } = this.props;
-
-        const { email, password } = this.state;
-
         const { open } = this.state;
         return (
 
@@ -57,27 +57,28 @@ class Register extends Component {
                 <button onClick={this.toggleModal.bind(this, true)} className='button-modal'>Regístrate</button>
                 <Modal open={open} onClose={this.toggleModal.bind(this, false)} center >
                     <div style={styles}>
-                        <form>
+                        <form onSubmit={this.handleOnSubmit}>
                             <div className='user-inputs'>
+                                <Input
+                                    type='text'
+                                    name='name'
+                                    value={this.state.name}
+                                    onChange={this.handleChange}
+                                    placeholder='Nombre de usuario' />
                                 <Input
                                     type='email'
                                     name='email'
-                                    value={this.state.name}
+                                    value={this.state.email}
                                     onChange={this.handleChange}
-                                    placeholder='correo electrónico' />
+                                    placeholder='Correo electrónico' />
                                 <Input
                                     type='password'
                                     name='password'
                                     value={this.state.password}
                                     onChange={this.handleChange}
-                                    placeholder='contraseña' />
+                                    placeholder='Contraseña' />
+                                < button className='button'>Regístrate</button>
 
-                                {
-                                    (user === null)
-                                        ? < button onClick={createUserWithEmailAndPassword(email, password)}
-                                            className='button'>Regístrate</button>
-                                        : <p style='color:red'>Error al crear cuenta</p>
-                                }
 
                             </div>
 
@@ -91,14 +92,8 @@ class Register extends Component {
         );
     }
 }
-const firebaseAppAuth = firebaseApp.auth();
-const providers = {
-    googleProvider: new firebase.auth.GoogleAuthProvider(),
-}
 
-export default withFirebaseAuth({
-    providers,
-    firebaseAppAuth,
-})(Register);
+
+export default Register;
 
 

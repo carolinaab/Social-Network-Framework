@@ -18,23 +18,23 @@ class Navbar extends Component {
 
     render() {
         return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="#"><Logo className="logo-img" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a className="navbar-brand" href="#"><Logo className="logo-img" /></a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav ml-auto">
+                <div className="collapse navbar-collapse" id="navbarColor01">
+                    <ul className="navbar-nav ml-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Chat</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Chat</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Perfil</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Perfil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Inicio</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Inicio</a>
                         </li>
                         <Link to="/">
                             <button className="button-close" onClick={() => {

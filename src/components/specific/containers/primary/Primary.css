@@ -8,8 +8,9 @@
     width: 20%;
     display: flex;
     width: 55%;
-    height: 650px;
-    flex-wrap: wrap;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
     background: #dadada;
 }
 .container-img{
@@ -26,3 +27,4 @@
     height: 40vh;
     
 }
+

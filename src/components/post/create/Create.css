@@ -1,0 +1,30 @@
+.home-input{
+
+    width: 30rem;
+    height: 15vh;
+    resize: none;
+   
+}
+.home-body{
+padding-top: 1rem;
+height: auto;
+}
+
+.home-input::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.home-input::-webkit-scrollbar:vertical {
+    width:5px;
+}
+
+
+.home-input::-webkit-scrollbar-thumb {
+    background-color: #539dbb;
+    border-radius: 20px;
+
+}
+
+.home-input::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
