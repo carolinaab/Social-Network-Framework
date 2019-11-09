@@ -27,7 +27,8 @@ class Post extends Component {
         e.preventDefault();
         let { post } = this.state;
         let user = firebase.auth().currentUser;
-        let uid = user.uid;
+        console.log(user)
+        let uid = user.email;
 
         db.collection('post').add({
             uid: uid,
@@ -40,6 +41,7 @@ class Post extends Component {
             .catch(error => {
                 console.error('Error adding document: ', error);
             });
+
 
 
     }

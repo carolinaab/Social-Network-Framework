@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
 import * as firebase from 'firebase/app';
-import { firebaseApp } from '../../../firebase/index';
 import Input from '../../generales/inputs/Inputs';
 import 'firebase/auth';
 import './Register.css'
@@ -32,6 +31,7 @@ class Register extends Component {
         };
     }
 
+
     toggleModal = (isOpen) => {
         this.setState({ open: isOpen })
     }
@@ -39,15 +39,38 @@ class Register extends Component {
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-    handleOnSubmit = e => {
+
+    handleChangeName = (e) => {
+        this.setState({
+            name: e.target.value
+        })
+
+    }
+
+    handleOnSubmit = (e) => {
         e.preventDefault();
         const { email, password } = this.state;
         firebase.auth()
             .createUserWithEmailAndPassword(email, password)
             .catch(error => {
-                console.log(error);
+                console.error(error);
             })
+
     }
+
+    // updateDataName = () => {
+    //     let user = firebase.auth().currentUser;
+    //     if (user === null) {
+    //         user.updateProfile({
+    //             displayName: this.state.name,
+    //         }).then(() => {
+    //             console.log(user.displayName)
+    //         }).catch(() => {
+    //             console.log('error')
+
+    //         })
+    //     }
+    // }
 
     render() {
         const { open } = this.state;
@@ -63,7 +86,7 @@ class Register extends Component {
                                     type='text'
                                     name='name'
                                     value={this.state.name}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChangeName}
                                     placeholder='Nombre de usuario' />
                                 <Input
                                     type='email'
@@ -77,7 +100,7 @@ class Register extends Component {
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                     placeholder='Contraseña' />
-                                < button className='button'>Regístrate</button>
+                                < input type='submit' className='button' value='Regístrate' />
 
 
                             </div>

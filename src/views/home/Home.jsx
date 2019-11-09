@@ -4,7 +4,6 @@ import 'firebase/auth';
 import { firebaseApp } from '../../firebase/index';
 import Navbar from '../../components/specific/navbar/Navbar'
 import Container from '../../components/specific/containers/primary/Primary'
-
 import './Home.css'
 
 
@@ -25,7 +24,6 @@ class Home extends Component {
             <Fragment>
                 <Navbar />
                 <Container />
-
             </Fragment>
         );
     }

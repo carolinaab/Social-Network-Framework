@@ -9,7 +9,6 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-   
 }
 .button-modal{
     background: transparent;
@@ -19,30 +18,38 @@
     cursor: pointer;
     width: 9rem;
     text-align: left;
-  
 }
 .container-form{
    flex-direction: column;
-   padding-left: 1.2em;
    padding-top: 2rem;
    display: flex;
+   justify-content: center;
 }
 .user-inputs {
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-left: 1rem;
+
+}
+.user-inputs input{
+ background: rgba(214, 214, 214, 0.5);
+ border-radius: 15px;
+ text-align: center;
+ margin-top: 1rem;
+ height: 2.5rem;
+ border: none;
+ width: 16rem;
 }
 .button{
-    background:#1E8DF4 ;
-    color: white;
-    margin-top: 1rem;
-    margin-right: 2.5rem;
-    height: 2rem;
-    width: 16rem;
-    border-radius: 10px;
-    border: none;
+ background:#1E8DF4 !important;
+ border-radius: 10px;
+ text-align: center;
+ margin-top: 1rem;
+ height: 2.5rem;
+ border: none;
+ width: 15rem;
+
 }
   .container-form p{
     padding-right: 4rem;
