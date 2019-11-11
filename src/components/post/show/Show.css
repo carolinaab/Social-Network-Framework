@@ -1,11 +1,32 @@
 .col-md-4 img{
-   height: 7rem;
-   width: 7em;
+   height: 4rem;
+   width: 4rem;
    border-radius: 100%;
-   margin-left: 2rem;
+   margin-left: 3rem;
    margin-top: 1rem;
+
 }
+.col-md-4 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   
+}
+.col-md-4 h5{
+   padding-left: 2rem;
+   padding-top: 1rem;
+   display: flex;
+}
+
 .card {
- margin-top: 3rem;
- padding-top: 1rem;
+ margin-top: 1rem;
+ background: rgb(235, 232, 232);
+
 }
+
+.card-columns {
+ column-count: 4;
+ column-count: 5;
+   
+ }

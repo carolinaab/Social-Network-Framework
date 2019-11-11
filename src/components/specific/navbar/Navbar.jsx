@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Logo from '../../generales/logo/logo';
 import "./Navbar.css";
 import { CSSTransition } from "react-transition-group";
 import * as firebase from 'firebase/app';

@@ -1,13 +1,24 @@
 .home-input{
+width: 40rem;
+height: 10vh;
+resize: none;
 
-    width: 30rem;
-    height: 15vh;
-    resize: none;
-   
 }
 .home-body{
-padding-top: 1rem;
 height: auto;
+
+}
+
+
+
+.text-header{
+background: #f5f6f7;
+margin-top: 3rem;
+height: 2rem;
+font-weight: bold;
+align-items: center;
+border: 1px solid rgb(173, 177, 173);
+
 }
 
 .home-input::-webkit-scrollbar {

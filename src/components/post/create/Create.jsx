@@ -28,7 +28,7 @@ class Post extends Component {
         let { post } = this.state;
         let user = firebase.auth().currentUser;
         console.log(user)
-        let uid = user.email;
+        let uid = user.uid;
 
         db.collection('post').add({
             uid: uid,
@@ -52,7 +52,11 @@ class Post extends Component {
             <div className='home-body' >
 
                 <form className="home-form" onSubmit={this.handleSubmit}>
+
                     <div className="home-post">
+                        <div className='text-header'>
+                            <p>Crear post</p>
+                        </div>
                         <textarea type="text"
                             className="home-input"
                             placeholder="Escribe tu post"
