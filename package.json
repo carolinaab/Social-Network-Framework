@@ -9,6 +9,7 @@
     "react": "^16.11.0",
     "react-bootstrap-navbar-offcanvas": "^1.0.3",
     "react-dom": "^16.11.0",
+    "react-firebase-file-uploader": "^2.4.3",
     "react-responsive-modal": "^4.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",

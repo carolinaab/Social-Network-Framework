@@ -1,41 +1,47 @@
-  .Logo{
+.Logo{
   width: 100px;
   height: 50px;
   }
-  .button-close{
-      color: white;
-      height: 2.5rem;
-  }
-  .Burger {
-    display: none;
-    grid-area: burger;
-    margin: 0 40px 0 0;
-    padding: 0;
-    justify-self: end;
-    font-size: 40px;
-    border: none;
-    background: none;
-    outline: none;
-    transition: 0.1s;
-  }
-  .Burger:active {
-    transform: scale(1.2);
-  }
+
+.Burger {
+display: inline;
+}
+.button-close{
+  color: white;
+  height: 2.5rem;
+}
+
   
-  @media (max-width: 700px) {
+  @media (min-width: 767px) {
     .Logo{
-        width: 50px;
-        height: 25px;
-        }
-  
-    .Burger {
-      display: inline;
-    }
-    
-    
+      width: 100px;
+      height: 50px;
+      }
+      .button-close{
+          color: white;
+          height: 2.5rem;
+      }
+      .Burger {
+        display: none;
+        grid-area: burger;
+        margin: 0 40px 0 0;
+        padding: 0;
+        justify-self: end;
+        font-size: 40px;
+        border: none;
+        background: none;
+        outline: none;
+        transition: 0.1s;
+      }
+      .Burger:active {
+        transform: scale(1.2);
+      }
+      
    
   }
   
+
+
   .NavAnimation-enter {
     opacity: 0;
     transform: scale(0.5);

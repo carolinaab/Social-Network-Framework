@@ -2,80 +2,109 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase/app';
 import { db } from '../../../firebase/index';
+import FileUploader from 'react-firebase-file-uploader';
 import './Create.css'
 
+
 class Post extends Component {
-
     constructor(props) {
-
         super(props);
         this.state = {
-            post: '',
-        }
+            image: "",
+            imageURL: "",
+            name: '',
+            coment: '',
+            allData: []
+        };
     }
 
-    handlePostChange = (e) => {
+    handleUpload = filename => {
+        console.log(filename)
+        this.setState({ image: filename })
+        firebase.storage().ref('photo').child(filename).getDownloadURL()
+            .then(url => this.setState({
+                imageURL: url
+            }))
 
-        this.setState({ [e.target.name]: e.target.value });
+
 
     }
 
-    cleanTextarea = () => {
-        this.setState('')
+
+    handleInputUpdate = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     }
-    handleSubmit = e => {
+
+    addPostData = (e) => {
         e.preventDefault();
-        let { post } = this.state;
-        let user = firebase.auth().currentUser;
-        console.log(user)
-        let uid = user.uid;
-
         db.collection('post').add({
-            uid: uid,
-            post: post,
+            date: new Date().toString(),
+            name: this.state.name,
+            coment: this.state.coment,
+            image: this.state.imageURL
         })
-            .then(docRef => {
-                console.log(post);
-                console.log(docRef.id);
-            })
-            .catch(error => {
-                console.error('Error adding document: ', error);
-            });
-
-
-
-    }
-
+        this.setState({
+            name: '',
+            coment: ''
+        });
+    };
 
     render() {
+
+        this.state.allData.map((element, i) => {
+            var name = element.name
+            var coment = element.coment
+            return (
+                <li key={i}>{name} ({coment})</li>
+            )
+        })
+
         return (
-            <div className='home-body' >
 
-                <form className="home-form" onSubmit={this.handleSubmit}>
 
-                    <div className="home-post">
-                        <div className='text-header'>
-                            <p>Crear post</p>
-                        </div>
-                        <textarea type="text"
-                            className="home-input"
-                            placeholder="Escribe tu post"
-                            value={this.state.post}
-                            name='post'
-                            onChange={this.handlePostChange}></textarea>
-                    </div>
 
-                    <div className="home-body-button">
-                        <input type="submit" className="home-button" id="sendpost" value="Publicar" />
-                    </div>
+            <form onSubmit={this.addPostData} className="cotainer-form">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Titulo"
+                    onChange={this.handleInputUpdate}
+                    value={this.state.name}
+                    className="text-header"
+                />
+                <br />
+                <textarea
+                    type="text"
+                    name="coment"
+                    placeholder="Post"
+                    onChange={this.handleInputUpdate}
+                    value={this.state.coment}
+                    className="home-input"
+                />
 
-                </form>
 
-            </div>
+                <FileUploader
+                    accept="image/*"
+                    name='image'
+                    storageRef={firebase.storage().ref('photo')}
+                    onUploadSuccess={this.handleUpload}
+                />
+                <br />
+                <button type="submit" className="btn btn-primary">Publicar</button>
 
-        )
 
+            </form>
+
+
+
+
+
+
+        );
     }
-}
 
+
+}
 export default Post;

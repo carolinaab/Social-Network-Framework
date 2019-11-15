@@ -1,17 +1,35 @@
+.container-img{
+    display: none;
+    
+   
+   }
+   .container-post{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    
+   }
+
+
+@media (min-width: 767px) {
 .container-main {
  display: flex;
  width: 100%;
- justify-content: space-between;
+
+ 
 }
 .container-post{
- width: 20%;
  display: flex;
- width: 50%;
+ width: 65%;
  height: auto;
  flex-direction: column;
  align-items: center;
-
-
+ 
+}
+.container-show{
+ width: auto;
 }
 
 .container-img{
@@ -22,6 +40,8 @@
  padding-right: 1rem;
  padding-top: 1rem;
  height: fit-content;
+ color: black;
+
 }
 .container-menu{
 width: 18%;
@@ -49,3 +69,5 @@ justify-content: center;
     
 }
 
+
+}

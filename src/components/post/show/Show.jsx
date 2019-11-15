@@ -3,8 +3,9 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase/app';
 import { db } from '../../../firebase/index';
-import fotoAlyab from '../../../img/alyab.jpg'
 import MenuPost from '../../post/menuPost/MenuPost';
+import FileUploader from 'react-firebase-file-uploader';
+
 import './Show.css'
 
 let user = firebase.auth().currentUser;
@@ -17,20 +18,41 @@ class Show extends Component {
             post: [],
             image: '',
             imgeUrl: '',
+            title: '',
+            date: '',
             openMenu: false,
         };
     }
+    handleUpload = filename => {
 
-    componentDidMount() {
+        this.setState({
+            image: filename,
+        })
+        firebase.storage().ref('photo').child(filename).getDownloadURL().then(url => this.setState({
+            imageURL: url
+        }))
+    }
+
+
+    componentWillMount() {
+
         db.collection("post").onSnapshot((snapShot) => {
             this.setState({
                 post: snapShot.docs.map(doc => {
-                    return { id: doc.id, data: doc.data().post }
+                    return {
+                        id: doc.id,
+                        data: doc.data().coment,
+                        image: doc.data().image,
+                        name: doc.data().name,
+                        date: doc.data().date
+                    }
+
                 })
+
             })
+
         })
     }
-
 
 
     deletePost = (id) => {
@@ -42,32 +64,31 @@ class Show extends Component {
             });
     }
 
-    handleNewPostChange = (e) => {
-        this.setState({
-            newPost: e.target.value
-        })
-    }
-    handleClickMenuPost = (e) => {
-        this.setState({ openMenu: !this.state.openMenu });
-    }
+
 
 
     render() {
-        const { post } = this.state;
+        const { post, image } = this.state;
 
 
         return (
             post && post !== undefined ? post.map((el) =>
+                <div className="card mb-3" key={el.id}>
+                    {
+                        image !== el.image
+                            ?
 
-                <div className="card" key={el.id}>
-                    <div className="col-md-4">
-                        <img src={fotoAlyab} className="card-img" alt="alyab" />
-                        <h5 className="card-title">Alyab </h5>
-                    </div>
+                            < img src={el.image} className="card-img-top" alt="" />
+
+                            :
+                            <div></div>
+                    }
+
                     <div className="card-body">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                        <h6 className="card-title" style={{ color: 'black' }}>Salud</h6>
+                        <p className="card-text"><small className="text-muted">{el.date}</small></p>
+                        <h5 className="card-title">{el.name}</h5>
                         <p className="card-text" style={{ color: 'black' }}>{el.data}</p>
+
                     </div>
 
 
@@ -75,7 +96,7 @@ class Show extends Component {
 
 
                         <div className="show-remove">
-                            <button onClick={() => this.deletePost(el.id)}>Borrar</button>
+                            <button onClick={() => this.deletePost(el.id)}><i className="material-icons">delete_outline</i></button>
                         </div>
                     </div>
 

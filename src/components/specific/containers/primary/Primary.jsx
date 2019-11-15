@@ -11,27 +11,6 @@ class Containers extends Component {
     render() {
         return (
             <main className='container-main'>
-                <div className='container-menu'>
-                    <ul>
-                        <li>
-                            <i class="material-icons" style={{ color: '#4981b8' }}>mail</i>
-                            Mensajes
-                        </li>
-                        <li>
-                            <i class="material-icons" style={{ color: '#e4db32' }}>star</i>
-                            Favoritos
-                        </li>
-                        <li>
-                            <i class="material-icons" style={{ color: '#93684e' }}>group</i>
-                            Amigos
-                        </li>
-                        <li>
-                            <i class="material-icons" style={{ color: '#268759' }}>notifications</i>
-                            Notificaciones
-                        </li>
-                    </ul>
-
-                </div>
                 <div className='container-post'>
                     <div className='container-textarea'>
                         <Post />
@@ -40,11 +19,7 @@ class Containers extends Component {
                     <div className='container-show'>
                         <Show />
                     </div>
-
-
-
                 </div>
-
                 <div className='container-img'>
                     <strong> <p>Artículos relacionados</p></strong>
 
