@@ -1,11 +1,27 @@
 .card img{
    height: 30vh;
-   width: 100%;
+   width: 90%;
 
-     
 }
 .card{
-   margin-top: 2rem;
+   margin-top: 1rem;
+   background-color: #ECF3FF !important;
+}
+.img-user{
+   width: 50px !important;
+   height: 50px !important;
+   border-radius: 100%;
+}
+.mb-4{
+  display: flex;
+  padding-left: 2rem;
+  border: 1px solid #e7e6e6;
+}
+.mb-4 p{
+margin-left: 1rem;
+color:#385898;
+font-weight: bold;;
+font-size:20px;
 }
 
 @media (min-width: 767px) {
@@ -28,10 +44,10 @@
 }
 
 .card {
- width: 40rem;
+ width: 45rem;
  margin-top: 1rem;
- background-color: azure;
- margin-top: 2rem;
+ background-color: #fffff1 !important;
+
 
 }
 
@@ -43,4 +59,15 @@
  .material-icons{
    padding-left: 2em;
  }
+ .img-user{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 100%;
+ }
+ .mb-4 {
+   display: flex;
+
+
+ }
+ 
 }

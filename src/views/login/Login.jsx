@@ -36,14 +36,16 @@ class Login extends Component {
             user,
             error,
             signInWithEmailAndPassword,
+            signInWithGoogle,
+            signInWithFacebook,
         } = this.props;
-
+        console.log(user)
         const { email, password } = this.state;
         return (
             <Fragment>
                 <main className='login' >
                     <div className='container-form'>
-                        <Logo className="img-logo" />
+                        <Logo className='img-logo' />
                         <div className='user-inputs'>
                             <Input
                                 type='email'
@@ -76,8 +78,8 @@ class Login extends Component {
                             <p>O inicia con</p>
                         </div>
                         <div className='social-logo'>
-                            <Button img={google} className='logos' />
-                            <Button img={facebook} className='logos' />
+                            <Button onClick={signInWithGoogle} img={google} className='logos' />
+                            <Button onClick={signInWithFacebook} img={facebook} className='logos' />
                         </div>
                     </div>
                 </main>
@@ -86,14 +88,29 @@ class Login extends Component {
         )
     }
 }
+const authConfig = {
+    email: {
+        verifyOnSignup: false,
+        saveUserInDatabase: true
+    },
+    google: {
+        returnAccessToken: true,
+        saveUserInDatabase: true
+    },
+    facebook: {
 
+        returnAccessToken: true,
+        saveUserInDatabase: true
+    },
+
+};
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
     googleProvider: new firebase.auth.GoogleAuthProvider(),
-
+    facebookProvider: new firebase.auth.FacebookAuthProvider()
 }
 
 export default withFirebaseAuth({
     providers,
     firebaseAppAuth,
-})(Login);
+})(Login, authConfig);

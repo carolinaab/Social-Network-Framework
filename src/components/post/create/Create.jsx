@@ -10,8 +10,8 @@ class Post extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            image: "",
-            imageURL: "",
+            image: '',
+            imageURL: '',
             name: '',
             coment: '',
             allData: []
@@ -39,18 +39,26 @@ class Post extends Component {
 
     addPostData = (e) => {
         e.preventDefault();
-        db.collection('post').add({
-            date: new Date().toString(),
-            name: this.state.name,
-            coment: this.state.coment,
-            image: this.state.imageURL
+        firebase.auth().onAuthStateChanged((user) => {
+            let userName = user.displayName;
+            let email = user.email;
+            let photoURL = user.photoURL;
+            db.collection('post').add({
+                date: new Date().toString(),
+                name: this.state.name,
+                coment: this.state.coment,
+                image: this.state.imageURL,
+                userName: userName,
+                email: email,
+                photoURL: photoURL,
+            })
+            this.setState({
+                name: '',
+                coment: ''
+            });
         })
-        this.setState({
-            name: '',
-            coment: ''
-        });
-    };
 
+    }
     render() {
 
         this.state.allData.map((element, i) => {
@@ -65,34 +73,34 @@ class Post extends Component {
 
 
 
-            <form onSubmit={this.addPostData} className="cotainer-form">
+            <form onSubmit={this.addPostData} className='cotainer-form'>
                 <input
-                    type="text"
-                    name="name"
-                    placeholder="Titulo"
+                    type='text'
+                    name='name'
+                    placeholder='Titulo'
                     onChange={this.handleInputUpdate}
                     value={this.state.name}
-                    className="text-header"
+                    className='text-header'
                 />
                 <br />
                 <textarea
-                    type="text"
-                    name="coment"
-                    placeholder="Post"
+                    type='text'
+                    name='coment'
+                    placeholder='Post'
                     onChange={this.handleInputUpdate}
                     value={this.state.coment}
-                    className="home-input"
+                    className='home-input'
                 />
 
 
                 <FileUploader
-                    accept="image/*"
+                    accept='image/*'
                     name='image'
                     storageRef={firebase.storage().ref('photo')}
                     onUploadSuccess={this.handleUpload}
                 />
                 <br />
-                <button type="submit" className="btn btn-primary">Publicar</button>
+                <button type='submit' className='btn btn-primary'>Publicar</button>
 
 
             </form>

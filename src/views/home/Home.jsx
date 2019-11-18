@@ -19,9 +19,11 @@ class Home extends Component {
     handleOnClick = (e) => {
         this.setState({ logged: false });
     }
+
     render() {
         return (
             <Fragment>
+
                 <Navbar />
                 <Container />
             </Fragment>

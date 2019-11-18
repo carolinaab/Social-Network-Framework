@@ -24,7 +24,6 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
             email: '',
             password: '',
             open: false,
@@ -58,19 +57,6 @@ class Register extends Component {
 
     }
 
-    // updateDataName = () => {
-    //     let user = firebase.auth().currentUser;
-    //     if (user === null) {
-    //         user.updateProfile({
-    //             displayName: this.state.name,
-    //         }).then(() => {
-    //             console.log(user.displayName)
-    //         }).catch(() => {
-    //             console.log('error')
-
-    //         })
-    //     }
-    // }
 
     render() {
         const { open } = this.state;
@@ -82,12 +68,7 @@ class Register extends Component {
                     <div style={styles}>
                         <form onSubmit={this.handleOnSubmit}>
                             <div className='user-inputs'>
-                                <Input
-                                    type='text'
-                                    name='name'
-                                    value={this.state.name}
-                                    onChange={this.handleChangeName}
-                                    placeholder='Nombre de usuario' />
+
                                 <Input
                                     type='email'
                                     name='email'

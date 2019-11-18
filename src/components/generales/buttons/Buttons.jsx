@@ -4,11 +4,10 @@ import './Buttons.css'
 
 class Button extends Component {
     render() {
-        const { text, className, img, alt } = this.props;
+        const { className, img, alt, onClick } = this.props;
         return (
-            <div className="conteiner-button">
-                <button className={className}>{text}<img src={img} alt={alt} /></button>
-            </div>
+            <button className={className} onClick={onClick}><img src={img} alt={alt} /></button>
+
         );
     }
 }
