@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+### Red social Fit Club
+Problemática
+Solo el 42% de la población en México hace ejercicio según una investigación del periódico el Universal del año 2018. Como se va incrementando la edad las personas dejan de ejercitarse.
 
-### `npm start`
+El 59.6% de las personas que practican algún deporte o hacen ejercicio lo hacen por salud, el 19% por diversión y el 17.6% su motivación es verse bien.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Por esta razón nace Fit Club, una red social que ayude a personas a conectarse con otras con el mismo interés que es cuidar su salud. Una manera rápida de conocer temas profesionales sobre nutrición, rutinas de ejercicio y tips para llevar un mejor estilo de vida.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Usuario
+Edad: de 25 a 35 años Género: mixto
 
-### `npm test`
+Nuestro usuario le gusta hacer ejercicio asiste a gimnasio o paga membresía de uno, se siente motivado a cuidar su salud, por lo que le interesa una red social donde pueda encontrar información, tips, entrenamientos, conocer personas con intereses similares. Así como también conocer a profesionales en el área que le puedan ayudar a conocer sus objetivos. Y que pueda publicar paginas e información de interés.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Historias de usuarios
+Como usuario nuevo me gustaría poder crear una cuenta nueva con un correo electrónico, que me permita crear una contraseña y que guarde mis datos para que de esa manera no tenga que escribirlos cuando desee entrar nuevamente.
+Criterios de aceptación
 
-### `npm run build`
+• Si el mail no es reconocido ver un mensaje de error
+• El mensaje de error se debe resaltar en letras rojas 
+• Debo ver la página en celular y en pantalla
+Como usuario me gustaría poder seguir a las personas de la red social que me motivan y dar likes a sus historias, para poder hacer un seguimiento de sus publicaciones.
+Criterios de aceptación
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+• Ver notificaciones 
+• cuando de like a alguien que cambie de color el botón
+• debo regresar a la pagina de inicio solo con un botón sin recargar la página
+Como usuario me gustaría tener un chat que me permita comunicarme en privado con algún instructor o nutriólogo que este en la red.
+Criterios de aceptación
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+• Que el chat de opción de estar disponible o no 
+• debe de dar opción de  minimizar 
+• debe desplegar opciones de personas para elegir con quien chatear
+Como usuario me gustaria poder publicar contenido, dar likes, buscar personas en la red, comentar publicaciones y compartir.
+Criterios de aceptación • Que el usuario pueda publicar post • Que el usuario pueda borrar o modificar post • El Usuario pueda dar likes a publicaciones de otros usuarios
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Entrevistas
+Entrevista a 4 personas, las cuales llevan una vida saludable y les gusta hacer ejercicio.
 
-### `npm run eject`
+¿Te gustaría ver consejos y progresos de otros?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+R 1= Sí, por inspiración R 2= Sí, por motivación R 3= No, o probablemente para conocer la competencia si estoy en un torneo R 4= Sí, para ver sus cuerpos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+¿Te gustaría ser guiado por un doctor?
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+R 1= Sí, que valide mi progreso R 2= Mas bien por un instructor R 3= Por un Doctor atlético y un Instructor atlético R 4= Por un instructor
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+¿Te gustaría conocer a más personas que, al igual que tu, les gusta llevar una vida saludable?
 
-## Learn More
+R 1= No lo considero relevante R 2= Sí, por que me motivan R 3= Sí, porque conocería contactos cercanos a mi y que llevan la misma rutina R 4= Tal vez, si veo que tienen un buen progreso los seguiría y preguntaría cual fue el método que le dio mejores resultados.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+¿Usarías una red social exclusiva para la salud?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+R 1= Sí R 2= No tanto R 3= Sí R 4= Sí, solo si hay asesorías de médicos y especialistas
 
-### Code Splitting
+Información adicional
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Me gustaría ver consejos de alimentación, horas de sueño, tipos de ejercicio, que nos den recetas acorde a la alimentación de los mexicanos y que estén al alcance económicamente.
 
-### Analyzing the Bundle Size
+Me gustaría que nos dieran las posiciones correctas a la hora de hacer ejercicio para que no nos lastimemos y a causa de eso dejemos de hacer esta actividad, al igual que, si dejamos de hacerlo nos den ejercicios suaves para volver a comenzar y ejercicios especialmente para mujeres.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Diseño de Interfaz
+Investigación
 
-### Making a Progressive Web App
+Se hizo una investigación en diferentes aplicaciones fitness y de salud para determinar y tomar decisiones sobre el diseño de interfaz, como el analisis de colores. Se llego a la conclusión de que en varias aplicaciones se utilizaban los siguientes colores:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Fitness: Rojos, naranjas, azul. Salud: Azules, verdes.
 
-### Advanced Configuration
+Se determinó utilizar colores naranjas y azules, para lograr un contraste por colores complentarios, los cuales se muestran en las aplicaciones de las cuales hicimos un analisis.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Paleta de color Se muestra a continuación la paleta de color:
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
+### Logotipo
+Determinamos que el logotipo debería de llevar elementos que ayuden a identificar a los usuarios la marca y el giro. La propuesta de diseño es la siguiente.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+También decidimos utilizar fotografías en la aplicación que ayudarán a motivar al usuario a lograr su objetivo.
+
+
+
+
+### Programas utilizados
+JavaScript(ES6+), HTML, CSS Boostrap y Firebase.
+
+
+|
+
