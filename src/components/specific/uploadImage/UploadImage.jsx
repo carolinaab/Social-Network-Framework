@@ -9,7 +9,9 @@ class ProfilePage extends Component {
         avatar: '',
         isUploading: false,
         progress: 0,
-        avatarURL: ''
+        avatarURL: '',
+        alert: '',
+        error: ''
     };
 
     handleChangeUsername = event =>
@@ -37,9 +39,10 @@ class ProfilePage extends Component {
             displayName: this.state.username,
             photoURL: this.state.avatarURL
         }).then(() => {
-            console.log('exito')
+            this.setState({ alert: 'Se actualizó tu perfil' })
+
         }).catch(() => {
-            console.log('algo salio mal')
+            this.setState({ error: 'Algo salio mal, Vuelve a intentarlo' })
         });
 
     }
@@ -72,7 +75,12 @@ class ProfilePage extends Component {
                         onProgress={this.handleProgress}
                     />
                     <button type='submit' className='btn btn-primary'>Publicar</button>
-
+                    {this.addNewData
+                        ?
+                        <p style={{ color: 'green', marginTop: '1rem', marginLeft: '1rem' }}>{this.state.alert}</p>
+                        :
+                        <p style={{ color: 'red', marginTop: '1rem', marginLeft: '1rem' }}>{this.state.error}</p>
+                    }
                 </form>
             </div>
 

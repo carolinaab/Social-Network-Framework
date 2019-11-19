@@ -39,7 +39,7 @@ class Login extends Component {
             signInWithGoogle,
             signInWithFacebook,
         } = this.props;
-        console.log(user)
+
         const { email, password } = this.state;
         return (
             <Fragment>
@@ -72,7 +72,6 @@ class Login extends Component {
                             }
 
                             {error ? <TextErrors textColor='red' text={error} /> : ''}
-
 
                             <Register />
                             <p>O inicia con</p>
