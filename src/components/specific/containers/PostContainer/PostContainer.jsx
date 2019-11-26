@@ -3,7 +3,7 @@ import Img from '../../../../img/plan-muro.jpg';
 import Post from '../../../post/create/Create';
 import Show from '../../../post/show/Show';
 
-import './Primary.css'
+import './PostContainer.css'
 
 
 class Containers extends Component {

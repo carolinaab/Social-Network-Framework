@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { firebaseApp } from '../../firebase/index';
 import Navbar from '../../components/specific/navbar/Navbar'
 import UploadImage from '../../components/specific/uploadImage/UploadImage'
 import ShowUser from '../../components/specific/showUser/ShowUser'

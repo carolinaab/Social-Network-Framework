@@ -53,24 +53,25 @@ class Login extends Component {
                                 value={this.state.email}
                                 onChange={this.handleInputChange}
                                 placeholder='Correo electrónico'
-                                className='inputs' />
+                                className='inputs'
+                                required />
                             <Input
                                 type='password'
                                 name='password'
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
                                 placeholder='Contraseña'
-                                className='inputs' />
+                                className='inputs'
+                                required />
 
                             {
                                 user
-                                    ? <Redirect to='/Home/' />
+                                    ? <Redirect to='/Home' />
                                     :
                                     <button className='button' onClick={(e) => {
                                         signInWithEmailAndPassword(email, password)
                                     }}> Iniciar </button>
                             }
-
                             {error ? <TextErrors textColor='red' text={error} /> : ''}
 
                             <Register />

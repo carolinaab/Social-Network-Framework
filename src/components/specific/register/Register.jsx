@@ -74,13 +74,15 @@ class Register extends Component {
                                     name='email'
                                     value={this.state.email}
                                     onChange={this.handleChange}
-                                    placeholder='Correo electrónico' />
+                                    placeholder='Correo electrónico'
+                                    required />
                                 <Input
                                     type='password'
                                     name='password'
                                     value={this.state.password}
                                     onChange={this.handleChange}
-                                    placeholder='Contraseña' />
+                                    placeholder='Contraseña'
+                                    required />
                                 < input type='submit' className='button' value='Regístrate' />
 
 
